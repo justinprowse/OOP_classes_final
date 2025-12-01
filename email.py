@@ -1,22 +1,40 @@
 class Email():
     def __init__(self, email_address, subject_line, email_content):
+        """
+        Create a new Email object.
+
+        Parameters:
+            email_address (str): The sender's email address.
+            subject_line (str): The email's subject.
+            email_content (str): The body/content of the email.
+        """
         self.email_address = email_address
         self.subject_line = subject_line
         self.email_content = email_content
         self.has_been_read = False
         
     def mark_as_read(self):
+        """
+        Mark this email as read by updating the has_been_read flag.
+        """
         self.has_been_read = True
         
 inbox = []
 
 def populate_inbox():
+    """
+    Populate the inbox with three sample Email objects.
+    """
     email_1 = Email("justin.prowse@gmail.com", "OOP Task", "You must complete the first OOP task today.")
     email_2 = Email("justin.prowse@gmail.com", "Hyperion Examples", "Here are the practise examples you asked for.")
     email_3 = Email("justin.prowse@gmail.com", "Study Room", "We are having a study room at 2pm tomorrow.")
     inbox.extend([email_1, email_2, email_3])
 
 def list_emails():
+    """
+    Print a short listing of all emails in the inbox, showing their index and subject line.
+    If the inbox is empty, indicate that to the user.
+    """
     if not inbox:
         print("Inbox is empty.")
         return
@@ -25,6 +43,12 @@ def list_emails():
         print(f"{idx} {email.subject_line}")
 
 def read_email(index):
+    """
+    Print the details of the email at the given index and mark it as read.
+
+    Parameters:
+        index (int): The position of the email in the inbox list.
+    """
     try:
         email = inbox[index]
     except IndexError:
@@ -85,4 +109,5 @@ while True:
 
 # TODO
 # functions dont have docstrings 
+
 # replace user_choice isdigit with try except
