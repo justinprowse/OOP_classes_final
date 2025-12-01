@@ -48,8 +48,10 @@ while True:
                             "2. View unread emails\n"
                             "3. Quit application\n"
                             "Enter selection: ")
-       
-    if not user_choice.isdigit():
+
+        try:                            # changed user_choice isdigit to try except
+            user_choice = int()
+        except ValueError:
         print("Oops - incorrect input.")
         continue
     user_choice = int(user_choice)
@@ -85,4 +87,5 @@ while True:
 
 # TODO
 # functions dont have docstrings 
+
 # replace user_choice isdigit with try except
